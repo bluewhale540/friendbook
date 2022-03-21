@@ -21,16 +21,16 @@ public class FriendServiceImplement implements FriendService {
 
     @Override
     public Friend getFriendByID(int id) {
-        return friendRepository.findById(id).get();
+        return friendRepository.findFriendById(id);
     }
 
     @Override
     public void addFriend(Friend friend) {
-        friendRepository.save(friend);
+        friendRepository.addFriendToDB(friend.getId(), friend.getFirstname(), friend.getLastname(), friend.getMajor(), friend.getYear());
     }
 
     @Override
     public void deleteFriend(int id) {
-        friendRepository.deleteById(id);
+        friendRepository.deleteFriendById(id);
     }
 }
